@@ -1,0 +1,19 @@
+{
+  "name": "cyphers.dev",
+  "version": "1.0.0",
+  "description": "another blog...",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Devcon4/cyphers.dev.git"
+  },
+  "author": "Devyn Cyphers (Devcon42)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Devcon4/cyphers.dev/issues"
+  },
+  "homepage": "https://github.com/Devcon4/cyphers.dev#readme"
+}
