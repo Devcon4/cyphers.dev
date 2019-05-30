@@ -4,12 +4,15 @@
   "description": "client",
   "main": "main.ts",
   "scripts": {
+    "serve": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "lit-element": "^2.1.0",
+    "parcel": "^1.12.3",
     "typescript": "^3.5.1"
   }
 }
