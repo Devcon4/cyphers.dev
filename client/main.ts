@@ -1,66 +1,76 @@
 import { LitElement, html, customElement} from 'lit-element';
 import { Router, RouterNode } from '../router/router';
+import Theme from './Theme';
 
 @customElement('dev-app')
 class AppComponent extends LitElement {
+
   route(path: string) {
     return () => Ioc.Router.nav(path);
   }
 
   render() {
     return html`
-      <div>Hello world!</div>
-      <button @click="${this.route('/main')}">main</button>
-      <button @click="${this.route('/about')}">about</button>
-      <button @click="${this.route('/other')}">other</button>
-      <dev-router-outlet></dev-router-outlet>
-      <div>Tailing!</div>
+      <style>
+        * {height: 100%;}
+
+        .background {
+          background-color: var(--theme3);
+        }
+      </style>
+      <div class="background">
+        <dev-blog></dev-blog>
+      </div>
     `;
   }
 }
 
-@customElement('dev-main')
-class MainComponent extends LitElement {
+@customElement('dev-blog')
+class BlogComponent extends LitElement {
   render() {
-    return html`<div>Main!</div>`;
-  }
-}
+    return html`
+      <style>
+      .wrapper {
+        height: 100%;
+      }
 
-@customElement('dev-about')
-class AboutComponent extends LitElement {
-  render() {
-    return html`<div>About!<dev-main></dev-main></div>`;
-  }
-}
-
-@customElement('dev-other')
-class OtherComponent extends LitElement {
-  render() {
-    return html`<div>Other!</div>`
+      .theme1 {background-color: var(--theme1); }
+      .theme2 {background-color: var(--theme2); }
+      .theme3 {background-color: var(--theme3); }
+      .theme4 {background-color: var(--theme4); }
+      .theme5 {background-color: var(--theme5); }
+      </style>
+      <div class="wrapper">
+        <div class="theme1">&nbsp</div>
+        <div class="theme2">&nbsp</div>
+        <div class="theme4">&nbsp</div>
+        <div class="theme5">&nbsp</div>
+      </div>`;
   }
 }
 
 @customElement('dev-router-outlet')
 class RouterOutletComponent extends LitElement {
+
     render() {
         return html`<div class="dev-router-outlet">`;
     }
 }
 
 export class Ioc {
-    static Router: Router = new Router({
-        beforeRoute(args) {
-            console.log(args);
-        },
-        routerOutlet: 'dev-router-outlet',
-        tree: new RouterNode({
-          component: AppComponent,
-          path: '',
-          children: [
-            new RouterNode({path: 'main', component: MainComponent }),
-            new RouterNode({path: 'about', component: AboutComponent}),
-            new RouterNode({path: 'other', component: OtherComponent})
-          ]
-        })
-    });
+  static Theme: Theme = new Theme();
+  static Router: Router = new Router({
+      beforeRoute(args) {
+          console.log(args);
+      },
+      routerOutlet: 'dev-router-outlet',
+      tree: new RouterNode({
+        component: AppComponent,
+        path: '',
+        children: [
+          new RouterNode({path: 'blog', component: BlogComponent }),
+        ]
+      })
+  });
 }
+
