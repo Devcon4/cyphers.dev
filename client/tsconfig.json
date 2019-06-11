@@ -2,6 +2,9 @@
     "compilerOptions": {
         "experimentalDecorators": true,
         "target": "esnext",
-        "module": "commonjs"
+        "module": "commonjs",
+        "lib": [
+            "esnext"
+        ]
     }
 }

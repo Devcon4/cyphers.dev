@@ -1,9 +1,8 @@
 import { LitElement, html, customElement} from 'lit-element';
-import { Router, RouterNode } from '../router/router';
-import Theme from './Theme';
+import { Ioc } from './Ioc';
 
 @customElement('dev-app')
-class AppComponent extends LitElement {
+export class AppComponent extends LitElement {
 
   route(path: string) {
     return () => Ioc.Router.nav(path);
@@ -15,7 +14,11 @@ class AppComponent extends LitElement {
         * {height: 100%;}
 
         .background {
-          background-color: var(--theme3);
+          --line-count: 6;
+          --line-colors: '';
+          --line-swaps: '500,800,1850,1500';
+          --animation-tick: 0;
+          background-image: paint(linePattern);
         }
       </style>
       <div class="background">
@@ -26,7 +29,7 @@ class AppComponent extends LitElement {
 }
 
 @customElement('dev-blog')
-class BlogComponent extends LitElement {
+export class BlogComponent extends LitElement {
   render() {
     return html`
       <style>
@@ -34,43 +37,21 @@ class BlogComponent extends LitElement {
         height: 100%;
       }
 
-      .theme1 {background-color: var(--theme1); }
-      .theme2 {background-color: var(--theme2); }
-      .theme3 {background-color: var(--theme3); }
-      .theme4 {background-color: var(--theme4); }
-      .theme5 {background-color: var(--theme5); }
+      .LightShade {background-color: var(--LightShade); }
+      .LightAccent {background-color: var(--LightAccent); }
+      .Main {background-color: var(--Main); }
+      .DarkAccent {background-color: var(--DarkAccent); }
+      .DarkShade {background-color: var(--DarkShade); }
       </style>
       <div class="wrapper">
-        <div class="theme1">&nbsp</div>
-        <div class="theme2">&nbsp</div>
-        <div class="theme4">&nbsp</div>
-        <div class="theme5">&nbsp</div>
       </div>`;
   }
 }
 
 @customElement('dev-router-outlet')
-class RouterOutletComponent extends LitElement {
+export class RouterOutletComponent extends LitElement {
 
     render() {
         return html`<div class="dev-router-outlet">`;
     }
 }
-
-export class Ioc {
-  static Theme: Theme = new Theme();
-  static Router: Router = new Router({
-      beforeRoute(args) {
-          console.log(args);
-      },
-      routerOutlet: 'dev-router-outlet',
-      tree: new RouterNode({
-        component: AppComponent,
-        path: '',
-        children: [
-          new RouterNode({path: 'blog', component: BlogComponent }),
-        ]
-      })
-  });
-}
-
