@@ -14,6 +14,7 @@
     "lit-element": "^2.1.0",
     "parcel": "^1.12.3",
     "parcel-plugin-static-files-copy": "^2.1.2",
+    "reprism": "0.0.11",
     "typescript": "^3.5.1"
   },
   "staticFiles": {

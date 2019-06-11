@@ -11,7 +11,7 @@ export default class Theme {
 
   constructor() {
     // Uncomment for color!
-    this.fetchTheme();
+    // this.fetchTheme();
     setTimeout(() => this.setCSS());
   }
   async fetchTheme() {

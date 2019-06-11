@@ -27,12 +27,6 @@ class linePainter {
 
         const vw = geo.width/100;
 
-        let centerOffset = 85 * vw;
-
-        let lineOffset = 12;
-        let line1Offset = -65;
-        let line2Offset = line1Offset * 2;
-
         let calcSwaps = (gutterOffset, lineSpacing, headerOffset) => {
             return lineSwaps.flatMap((s, i) => {
                 let arr = [
@@ -45,7 +39,7 @@ class linePainter {
         }
 
         let calcPoint = (gutterOffset, headerOffset, lineSpacing) => {
-            return {points: [{x: geo.width - gutterOffset + lineSpacing, y: 0}, ...calcSwaps(gutterOffset, lineSpacing, headerOffset), {x: geo.width - gutterOffset + lineSpacing, y: geo.height}]}
+            return {points: [{x: geo.width - gutterOffset + lineSpacing, y: 0}, ...calcSwaps(gutterOffset, lineSpacing, headerOffset), {x: geo.width - gutterOffset + lineSpacing, y: geo.height+100}]}
         }
 
         let createSegment = (color, gutterOffset, headerOffset) => {
@@ -63,10 +57,13 @@ class linePainter {
             }
         }
 
+        let segmentSpacing = 65;
+        let gutterWidth = 5;
+
         const segments = [
-            createSegment(darkAccent, 10*vw, 0),
-            createSegment(main, (10*vw) + 85, +85),
-            createSegment(darkShade, (10*vw) + 170, +170),
+            createSegment(darkAccent, gutterWidth*vw, 0),
+            createSegment(main, (gutterWidth*vw) + segmentSpacing, + segmentSpacing),
+            createSegment(darkShade, (gutterWidth*vw) + segmentSpacing *2, + segmentSpacing*2),
         ]
 
         // const segments = [
