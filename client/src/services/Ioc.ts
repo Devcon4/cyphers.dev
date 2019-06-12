@@ -1,4 +1,4 @@
-import { Router, RouterNode } from '../router/router';
+import { Router, RouterNode } from '../../../router/router';
 import Theme from './Theme';
 // import { AppComponent, BlogComponent } from './main';
 import bootstrap from './BootstrapHoudini';

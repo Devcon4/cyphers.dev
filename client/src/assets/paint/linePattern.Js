@@ -58,12 +58,12 @@ class linePainter {
         }
 
         let segmentSpacing = 65;
-        let gutterWidth = 5;
+        let gutterWidth = 50;
 
         const segments = [
-            createSegment(darkAccent, gutterWidth*vw, 0),
-            createSegment(main, (gutterWidth*vw) + segmentSpacing, + segmentSpacing),
-            createSegment(darkShade, (gutterWidth*vw) + segmentSpacing *2, + segmentSpacing*2),
+            createSegment(darkAccent, gutterWidth, 0),
+            createSegment(main, (gutterWidth) + segmentSpacing, + segmentSpacing),
+            createSegment(darkShade, (gutterWidth) + segmentSpacing *2, + segmentSpacing*2),
         ]
 
         // const segments = [

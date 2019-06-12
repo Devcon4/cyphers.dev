@@ -33,5 +33,6 @@ export default class Theme {
       document.body.style.setProperty('--Main', format(this.colors[2]));
       document.body.style.setProperty('--DarkAccent', format(this.colors[3]));
       document.body.style.setProperty('--DarkShade', format(this.colors[4]));
+      
     }
 }
