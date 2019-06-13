@@ -1,0 +1,10 @@
+kind: Service
+metadata:
+  name: sample-load-balancer
+spec:
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+      name: http

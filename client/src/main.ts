@@ -23,7 +23,7 @@ export class AppComponent extends LitElement {
         .background {
           --line-count: 6;
           --line-colors: '';
-          --line-swaps: '150,1850';
+          --line-swaps: '150, 8000';
           --animation-tick: 0;
           background-image: paint(linePattern);
         }

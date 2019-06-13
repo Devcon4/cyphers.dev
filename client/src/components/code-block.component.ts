@@ -1,5 +1,9 @@
 import { LitElement, html, css, customElement, property } from 'lit-element';
-import { highlight } from "reprism";
+import { highlight, loadLanguages } from "reprism";
+
+import typescript from 'reprism/languages/typescript';
+
+loadLanguages(typescript);
 @customElement('dev-code-block')
 export default class CodeBlockComponent extends LitElement {
   @property()
